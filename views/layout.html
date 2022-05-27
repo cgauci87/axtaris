@@ -12,6 +12,7 @@
     <style>
         body {
             font-family: Arial;
+            font-size: calc( 24px + (12 - 4) * (100vw - 400px) / (800 - 400));
         }
 
         /**
@@ -165,10 +166,58 @@
             margin: 10px;
             border-radius: 8px;
         }
+
+        /*styling for the search bar*/
+
+        * {
+        font-size: calc( 18px + (6 - 4) * (100vw - 400px) / (800 - 400));
+        }
+
+        .heading h1 {
+        font-size: calc( 72px + (48 - 24) * (100vw - 400px) / (800 - 400));
+        color: rgba(0,54,54,1);
+        font-family: 'Helvetica Neue', sans-serif;  font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
+        }
+
+        .input-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(0, 0, 50,1)	;
+        padding: 0.5em;
+        border-radius: 0.5em;
+        color: rgba(238, 235, 217);
+        }
+
+        input {
+        margin: 0 0.5em 0 0.5em;
+        width: 100%;
+        border-radius: 0.5em;
+        background:  rgba(0,0,0,1);
+        color: rgba(232, 228, 201,1)
+        }
+
+        .search-icon:hover {
+        cursor:pointer;
+        }
+
+        ::placeholder {
+        color: rgba(0,54,54,1);
+        }
+
+
     </style>
 </head>
 
-@{body}
+<body>
+    <div class="heading">
+        <h1>axtariS</hi>
+    </div>
 
+    <div class="input-container">
+        <input type="text" placeholder="Search">
+        <div class="fa fa-search search-icon"></div>
+    </div>
+</body>
 
 </html>
