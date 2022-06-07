@@ -215,9 +215,52 @@
     </div>
 
     <div class="input-container">
-        <input type="text" placeholder="Search your desired electronics">
-        <div class="fa fa-search search-icon"></div>
+        <!-- <form> -->
+            <input type="text" id="search_query" placeholder="Search your desired electronics">
+            <input type="submit" class="fa fa-search search-icon" onclick="fetchData()">
+
+        <!-- </form> -->
     </div>
+
+    <div id="showData">
+        
+    </div>
+
+    <div class="aws" id="aws_data">
+        <label> Title </label>
+        <h4 id="aws_title"></h4>
+
+        <label> Price </label>
+        <h4 id="aws_price"></h4>
+
+        <label> URL </label>
+        <h4 id="aws_url"></h4>
+    </div>
+
 </body>
+
+<script>
+   function fetchData() 
+    {
+        let query = document.getElementById("search_query");
+        query = query.value;
+        let url = "https://5000-cgauci87-axtaris-rj1oli897oj.ws-eu46.gitpod.io/stores/search-products?search_query="+query;
+        fetch(url).then( (x) => {
+            (x.json().then( ( y ) => {
+                console.log(y);
+                // let div = document.getElementById("showData");
+                // div.innerHTML = JSON.stringify(y.data);
+                // let aws_data = document.getElementById("aws_data");
+                let aws_title = document.getElementById("aws_title");
+                let aws_price = document.getElementById("aws_price");
+                let aws_url = document.getElementById("aws_url");
+                // aws_data.innerHTML = JSON.stringify(y.data.aws_lowest_product);
+                aws_title.innerHTML = JSON.stringify(y.data.aws_lowest_product.title);
+                aws_price.innerHTML = JSON.stringify(y.data.aws_lowest_product.price);
+                aws_url.innerHTML = JSON.stringify(y.data.aws_lowest_product.url);
+            }));
+        })
+    };
+</script>
 
 </html>
