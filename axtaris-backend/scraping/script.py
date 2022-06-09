@@ -153,4 +153,3 @@ class EbayScraper:
             )
         return ebey_product
 
-

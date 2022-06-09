@@ -33,19 +33,19 @@ def search_products(request):
             pass
 
 
-        # try:
-        #     ebay_product_list+=EbayScraper(search_query).scrape_products()
-        # except:
-        #     pass
+        try:
+            ebay_product_list+=EbayScraper(search_query).scrape_products()
+        except:
+            pass
 
-        # overall_products = aws_product_list  + flipkart_product_list + bestbuy_product_list + ebay_product_list
-        overall_products = aws_product_list  + flipkart_product_list + bestbuy_product_list
+        overall_products = aws_product_list  + flipkart_product_list + bestbuy_product_list + ebay_product_list
+        # overall_products = aws_product_list  + flipkart_product_list + bestbuy_product_list
 
         data = {
             "final_lowest_product": extract_lowest_price(overall_products) if len(overall_products) > 0 else dict(),
             "aws_lowest_product": extract_lowest_price(aws_product_list) if len(aws_product_list) > 0 else dict(),
-            # "bestbuy_lowest_product": extract_lowest_price(bestbuy_product_list) if len(bestbuy_product_list) > 0 else dict(),
-            # "ebay_lowest_product": extract_lowest_price(ebay_product_list) if len(ebay_product_list) > 0 else dict(),
+            "bestbuy_lowest_product": extract_lowest_price(bestbuy_product_list) if len(bestbuy_product_list) > 0 else dict(),
+            "ebay_lowest_product": extract_lowest_price(ebay_product_list) if len(ebay_product_list) > 0 else dict(),
             "flipkart_lowest_product": extract_lowest_price(flipkart_product_list) if len(flipkart_product_list) > 0 else dict(),
             "total_products": overall_products,
         }
