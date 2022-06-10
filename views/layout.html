@@ -227,14 +227,25 @@
     </div>
 
     <div class="aws" id="aws_data">
-        <label> Title </label>
+        <label> Item </label>
         <h4 id="aws_title"></h4>
 
-        <label> Price </label>
+        <label> Lowest Price on Amazon </label>
         <h4 id="aws_price"></h4>
 
-        <label> URL </label>
+        <label> Details </label>
         <h4 id="aws_url"></h4>
+    </div>
+
+    <div class="ebay" id="ebay_data">
+        <label> Item </label>
+        <h4 id="ebay_title"></h4>
+
+        <label> Lowest Price on eBay </label>
+        <h4 id="ebay_price"></h4>
+
+        <label> Details </label>
+        <h4 id="ebay_url"></h4>
     </div>
 
 </body>
@@ -244,20 +255,26 @@
     {
         let query = document.getElementById("search_query");
         query = query.value;
-        let url = "https://8000-cgauci87-axtaris-0oyye0b8a65.ws-eu47.gitpod.io/stores/search-products?search_query="+query;
+        let url = "https://8000-cgauci87-axtaris-3d4ajquxugv.ws-eu47.gitpod.io/stores/search-products?search_query="+query;
         fetch(url).then( (x) => {
             (x.json().then( ( y ) => {
                 console.log(y);
-                // let div = document.getElementById("showData");
-                // div.innerHTML = JSON.stringify(y.data);
-                // let aws_data = document.getElementById("aws_data");
+
                 let aws_title = document.getElementById("aws_title");
                 let aws_price = document.getElementById("aws_price");
                 let aws_url = document.getElementById("aws_url");
-                // aws_data.innerHTML = JSON.stringify(y.data.aws_lowest_product);
+
                 aws_title.innerHTML = JSON.stringify(y.data.aws_lowest_product.title);
                 aws_price.innerHTML = JSON.stringify(y.data.aws_lowest_product.price);
                 aws_url.innerHTML = JSON.stringify(y.data.aws_lowest_product.url);
+
+                let ebay_title = document.getElementById("ebay_title");
+                let ebay_price = document.getElementById("ebay_price");
+                let ebay_url = document.getElementById("ebay_url");
+
+                ebay_title.innerHTML = JSON.stringify(y.data.ebay_lowest_product.title);
+                ebay_price.innerHTML = JSON.stringify(y.data.ebay_lowest_product.price);
+                ebay_url.innerHTML = JSON.stringify(y.data.ebay_lowest_product.url);
             }));
         })
     };
