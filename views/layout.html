@@ -253,8 +253,9 @@
         <label> Lowest Price on Amazon </label>
         <h4 id="aws_price"></h4>
 
-        <label> View </label>
+        <a id="aws_view_url" target="_blank" >Visit</a>
         <h4 id="aws_url"></h4>
+
     </div>
 
     <div class="ebay" id="ebay_data" style="display:none">
@@ -264,7 +265,7 @@
         <label> Lowest Price on eBay </label>
         <h4 id="ebay_price"></h4>
 
-        <label> View </label>
+        <a id="ebay_View_url" target="_blank" >Visit</a>
         <h4 id="ebay_url"></h4>
     </div>
 
@@ -277,7 +278,7 @@
         let query = document.getElementById("search_query");
         query = query.value;
         console.log("test")
-        let url = "https://2425-cgauci87-axtaris-vkslft9mmrt.ws-eu47.gitpod.io/stores/search-products?search_query="+query;
+        let url = "https://8000-cgauci87-axtaris-i48ttpoyqas.ws-eu47.gitpod.io/stores/search-products?search_query="+query;
         fetch(url).then( (x) => {
             (x.json().then( ( y ) => {
                 console.log(y);
@@ -292,6 +293,8 @@
                 aws_title.innerHTML = JSON.stringify(y.data.aws_lowest_product.title);
                 aws_price.innerHTML = JSON.stringify(y.data.aws_lowest_product.price);
                 aws_url.innerHTML = JSON.stringify(y.data.aws_lowest_product.url);
+                var aws_link = document.getElementById('aws_view_url');
+                aws_link.href = y.data.aws_lowest_product.url
             }
 
                 let ebay_title = document.getElementById("ebay_title");
@@ -304,6 +307,8 @@
                     ebay_title.innerHTML = JSON.stringify(y.data.ebay_lowest_product.title);
                     ebay_price.innerHTML = JSON.stringify(y.data.ebay_lowest_product.price);
                     ebay_url.innerHTML = JSON.stringify(y.data.ebay_lowest_product.url);
+                    var abay_link = document.getElementById('ebay_View_url');
+                    abay_link.href = y.data.ebay_lowest_product.url
                 }
             }));
         })
