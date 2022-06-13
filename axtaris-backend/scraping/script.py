@@ -46,65 +46,6 @@ def aws_scrape(product_name):
     return aws_product
 
 
-class FlipkartScraper:
-
-    def __init__(self, keyword):
-        self.keyword = keyword
-        plusified_keyword = keyword.replace(" ", "+")
-        self.products = []
-        self.search_url = "https://www.flipkart.com/search?q=" + plusified_keyword
-
-    def scrape_products(self):
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36'}
-        content = requests.get(self.search_url, headers=headers).text
-        soup = BeautifulSoup(content, "html.parser")
-        product_list = []
-        products = soup.find("div", {"class": "_1YokD2 _3Mn1Gg"}).find_all("div", {"class": "_1AtVbE col-12-12"})
-        for product in products:
-            try:
-                div = product.find("div", {"class": "_13oc-S"})
-                url = f'https://www.flipkart.com{div.div.div.a["href"]}'
-                name = div.find('div', {'class': '_4rR01T'}).text
-                price = div.find('div', {"class": "_30jeq3 _1_WHN1"}).text
-
-                product_list.append({
-                    "title": name,
-                    "price": round(float(price.replace("₹", "").replace(",", ""))/77.55, 2),
-                    "url": url
-                })
-            except:
-                pass
-        return product_list
-
-
-class BestBuyScraper:
-
-    def __init__(self, keyword):
-        self.keyword = keyword
-        plusified_keyword = keyword.replace(" ", "+")
-        self.products = []
-        self.search_url = "https://www.bestbuy.com/site/searchpage.jsp?st=" + plusified_keyword + "&intl=nosplash"
-
-    def scrape_products(self):
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36'}
-        content = requests.get(self.search_url, headers=headers).text
-        soup = BeautifulSoup(content, "html.parser")
-        product_list = []
-        products = soup.find("ol", {"class": "sku-item-list"}).find_all("li", {"class": "sku-item"})
-        for product in products:
-            div = product.find("div", {"class": "list-item lv"})
-            url = f'https://www.bestbuy.com{div.find("a")["href"]}'
-            name = div.find('h4', {'class': 'sku-title'}).text
-            price = div.find('div', {"class": "priceView-hero-price priceView-customer-price"}).span.text
-
-            product_list.append({
-                "title": name,
-                "price": float(price.replace("$", "").replace(",", "")),
-                "url": url
-            })
-        return product_list
-
-
 class EbayScraper:
 
     def __init__(self, keyword):
@@ -151,5 +92,5 @@ class EbayScraper:
                     "url": product_data.get("url"),
                 }
             )
-        return ebey_product
+        return ebay_product
 

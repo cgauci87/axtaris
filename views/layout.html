@@ -237,6 +237,7 @@
         <!-- <form> -->
             <input type="text" id="search_query" placeholder="Search for your desired electronics">
             <input type="submit" class="fa fa-search search-icon" onclick="fetchData()">
+            
 
         <!-- </form> -->
     </div>
@@ -275,7 +276,8 @@
         document.getElementById("loader").style.display = "block";
         let query = document.getElementById("search_query");
         query = query.value;
-        let url = "https://8000-cgauci87-axtaris-h45bvmnfo8c.ws-eu47.gitpod.io/stores/search-products?search_query="+query;
+        console.log("test")
+        let url = "https://2425-cgauci87-axtaris-vkslft9mmrt.ws-eu47.gitpod.io/stores/search-products?search_query="+query;
         fetch(url).then( (x) => {
             (x.json().then( ( y ) => {
                 console.log(y);
@@ -306,76 +308,6 @@
             }));
         })
     };
-</script>
-
-<script>
-    import React, { useState } from "https://cdn.skypack.dev/react@17.0.1";
-import ReactDOM from "https://cdn.skypack.dev/react-dom@17.0.1";
-
-const suggestions = [
-  "charge cable for iphone 13",
-  "hp pavilion laptop",
-  "lenovo laptop",
-  "Apple iPhone 13 128GB new unlocked",
-  "Samsung Galaxy S22 Ultra new unlocked",
-  "Acer Nitro 5 17.3''QHD IPS 165Hz Core i7-11800H (11th Gen) 512GB SSD 16GB RAM RTX3060 (6GB) new",
-  "48 inch Panasonic TX-48JZ1500E new",
-  "HP 27 inch FHD Core i3-1125G4 new",
-  "Canon EOS 2000D Digital Camera new",
-  "GoPro Hero9 Black Edition new",
-  "Xiaomi Redmi Note 11 Pro new"
-];
-
-// debounce function optimizes callback to be called on input change
-function debounce(func, timeout = 300) {
-  let timer;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => func.apply(this, args), timeout);
-  };
-}
-
-const Result = ({ result }) => {
-  return <li className="item">{result}</li>;
-};
-
-const ResultBlock = ({ results }) => {
-  return (
-    <div className="result-block">
-      <ul>
-        {results.map((r, i) => (
-          <Result key={i} result={r} />
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-function App() {
-  const [query, setQuery] = useState('');
-  const debounceQuery = debounce(setQuery);
-  const filtered = query && suggestions.filter(suggestion => suggestion.toLowerCase().includes(query.toLowerCase()));
-  
-  return (
-    <main>
-      <input
-        type="text"
-        placeholder="Type something..."
-        autocomplete="off"
-        defaultValue={query}
-        onChange={(e) => debounceQuery(e.target.value)}
-      />
-      {filtered.length === 0 ? (
-        <p className="item no-result">No Result</p>
-      ) : (
-        <ResultBlock results={filtered} />
-      )}
-    </main>
-  );
-}
-
-ReactDOM.render(<App />, document.getElementsByClassName("input-container"));
-
 </script>
 
 </html>
