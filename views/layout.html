@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/111b5186aa.js" crossorigin="anonymous"></script>
     <title>axtariS - Beyond the search</title>
     <style>    
         /* Default styles */
@@ -14,7 +13,7 @@
 
         * {
         font-size: calc( 18px + (6 - 4) * (100vw - 400px) / (800 - 400));
-        }
+        }+
 
         .heading h1 {
         font-size: calc( 72px + (48 - 24) * (100vw - 400px) / (800 - 400));
@@ -38,10 +37,6 @@
         border-radius: 0.5em;
         background:  rgba(0,0,0,1);
         color: rgba(232, 228, 201,1)
-        }
-
-        .search-icon:hover {
-        cursor:pointer;
         }
 
         ::placeholder {
@@ -93,7 +88,7 @@
     <!-- search bar -->
     <div class="input-container">
             <input type="text" id="search_query" placeholder="Search for your desired electronics">
-            <input type="submit" name="go" class="fa fa-search search-icon" onclick="fetchData()">
+            <input type="submit" name="go" onclick="fetchData()">
     </div>
     
     <!-- data will be displayed below -->
