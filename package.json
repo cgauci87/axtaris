@@ -1,23 +1,22 @@
 {
-  "name": "terminal",
+  "name": "axtaris",
   "version": "1.0.0",
-  "main": "server.js",
+  "description": "axtaris app",
+  "main": "views/layout.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "axtaris-backend/manage.py/manage.py"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lechien73/terminal.git"
+    "url": "git+https://github.com/cgauci87/axtaris.git"
   },
-  "author": "",
+  "keywords": [
+    "webapp"
+  ],
+  "author": "cgauci87",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lechien73/terminal/issues"
+    "url": "https://github.com/cgauci87/axtaris/issues"
   },
-  "homepage": "https://github.com/lechien73/terminal#readme",
-  "dependencies": {
-    "node-static": "^0.7.11",
-    "node-pty": "^0.10.1",
-    "total4": "^0.0.45"
-  }
+  "homepage": "https://github.com/cgauci87/axtaris#readme"
 }
