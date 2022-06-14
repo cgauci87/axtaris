@@ -102,19 +102,19 @@
     </div>
 
     
-    <!-- Data fetched from Amazon store -->
-    <div class="aws" id="aws_data" style="display:none">
+    <!-- Data fetched from Flipkart store -->
+    <div class="flipkart" id="flipkart_data" style="display:none">
         <label> Item: </label>
-        <h4 id="aws_title"></h4>
+        <h4 id="flipkart_title"></h4>
 
-        <label> Lowest Price on Amazon: </label>
-        <h4 id="aws_price"></h4>
+        <label> Lowest Price on Flipkart: </label>
+        <h4 id="flipkart_price"></h4>
 
-        <a id="aws_view_url" target="_blank" >Visit</a>
+        <a id="flipkart_view_url" target="_blank" >Visit</a>
         <br>
         <br>
         <label> URL: </label>
-        <h4 id="aws_url"></h4>
+        <h4 id="flipkart_url"></h4>
         <br>
         <br>
     </div>
@@ -155,7 +155,7 @@
                 let flipkart_price = document.getElementById("flipkart_price");
                 let flipkart_url = document.getElementById("flipkart_url");
 
-                if(Object.keys(y.data.aws_lowest_product).length>0){
+                if(Object.keys(y.data.flipkart_lowest_product).length>0){
                 
                 document.getElementById("flipkart_data").style.display = "block";
                 flipkart_title.innerHTML = JSON.stringify(y.data.flipkart_lowest_product.title); /*Get the item title which is lowest price only on flipkart if any available*/
