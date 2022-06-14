@@ -132,8 +132,8 @@ How to make a Local Clone:
 The site was deployed to Github pages using the following steps:
 * In the Github repository, navigate to the settings tab.
 * Scroll down and select Pages from the left side navigation menu to open Github pages.
-* In the Source section, click on the dropdown menu and select the Master branch.
-* Once the Master branch is selected the page will refresh to display a message stating "Your site is published at 
+* In the Source section, click on the dropdown menu and select the Main branch.
+* Once the Main branch is selected the page, click Save and then will refresh to display a message stating "Your site is ready to be published at https://cgauci87.github.io/axtaris/"
 
 <p align="right">(<a href="#top">Back to top</a>)</p>
 

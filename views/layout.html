@@ -140,7 +140,8 @@
         document.getElementById("loader").style.display = "block";
         let query = document.getElementById("search_query");
         query = query.value;
-        let url = "https://8000-cgauci87-axtaris-tsaat15ehjb.ws-eu47.gitpod.io/stores/search-products?search_query="+query;
+        let url = "https://github.com/cgauci87/axtaris/tree/main/axtaris-backend/stores/search-products?search_query="+query;
+        
         fetch(url).then( (x) => {
             (x.json().then( ( y ) => {
                 console.log(y);
