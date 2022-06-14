@@ -48,6 +48,7 @@
         color: rgba(0,54,54,1);
         }
 
+    /*styling for results display' anchor*/
 
         a {
             width: 200px;
@@ -80,6 +81,7 @@
 </head>
 
 <body>
+    <!-- header logo -->
     <div class="se-pre-con" id="loader" style="display: none;"></div>
     <div class="heading">
         <h1>axtariS</hi>
@@ -87,18 +89,20 @@
 
     <div class="loader" id="loader">
     </div>
-
+    
+    <!-- search bar -->
     <div class="input-container">
-        <!-- <form> -->
             <input type="text" id="search_query" placeholder="Search for your desired electronics">
             <input type="submit" name="go" class="fa fa-search search-icon" onclick="fetchData()">
-        <!-- </form> -->
     </div>
-
+    
+    <!-- data will be displayed below -->
     <div id="showData">
         
     </div>
 
+    
+    <!-- Data fetched from Amazon store -->
     <div class="aws" id="aws_data" style="display:none">
         <label> Item: </label>
         <h4 id="aws_title"></h4>
@@ -114,7 +118,8 @@
         <br>
         <br>
     </div>
-
+    
+    <!-- Data fetched from ebay store -->
     <div class="ebay" id="ebay_data" style="display:none">
         <label> Item: </label>
         <h4 id="ebay_title"></h4>
