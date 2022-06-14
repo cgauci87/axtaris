@@ -277,7 +277,6 @@
         document.getElementById("loader").style.display = "block";
         let query = document.getElementById("search_query");
         query = query.value;
-        console.log("test")
         let url = "https://8000-cgauci87-axtaris-i48ttpoyqas.ws-eu47.gitpod.io/stores/search-products?search_query="+query;
         fetch(url).then( (x) => {
             (x.json().then( ( y ) => {
