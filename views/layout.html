@@ -10,7 +10,7 @@
     <style>    
         /* Default styles */
 
-        /*styling for the search bar*/
+        /*styling for the search bar*/  
 
         * {
         font-size: calc( 18px + (6 - 4) * (100vw - 400px) / (800 - 400));
@@ -145,7 +145,7 @@
         document.getElementById("loader").style.display = "block";
         let query = document.getElementById("search_query");
         query = query.value;
-        let url = "https://8000-cgauci87-axtaris-zej102hbj6w.ws-eu47.gitpod.io/stores/search-products?search_query="+query;
+        let url = "https://8000-cgauci87-axtaris-tsaat15ehjb.ws-eu47.gitpod.io/stores/search-products?search_query="+query;
         fetch(url).then( (x) => {
             (x.json().then( ( y ) => {
                 console.log(y);
