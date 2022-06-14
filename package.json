@@ -4,7 +4,7 @@
   "description": "axtaris app",
   "main": "views/layout.html",
   "scripts": {
-    "test": "axtaris-backend/manage.py/manage.py"
+    "test": "axtaris-backend/manage.py"
   },
   "repository": {
     "type": "git",
