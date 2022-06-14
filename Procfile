@@ -1,1 +1,1 @@
-web: node views/layout.html
+web: python axtaris-backend/manage.py runserver 0.0.0.0:\$PORT
