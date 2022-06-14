@@ -150,20 +150,21 @@
             (x.json().then( ( y ) => {
                 console.log(y);
                 document.getElementById("loader").style.display = "none";
-                let aws_title = document.getElementById("aws_title");
-                let aws_price = document.getElementById("aws_price");
-                let aws_url = document.getElementById("aws_url");
+                       /*pull data from the flipkart API*/
+                let flipkart_title = document.getElementById("flipkart_title");
+                let flipkart_price = document.getElementById("flipkart_price");
+                let flipkart_url = document.getElementById("flipkart_url");
 
                 if(Object.keys(y.data.aws_lowest_product).length>0){
                 
-                document.getElementById("aws_data").style.display = "block";
-                aws_title.innerHTML = JSON.stringify(y.data.aws_lowest_product.title);
-                aws_price.innerHTML = JSON.stringify(y.data.aws_lowest_product.price);
-                aws_url.innerHTML = JSON.stringify(y.data.aws_lowest_product.url);
-                var aws_link = document.getElementById('aws_view_url');
-                aws_link.href = y.data.aws_lowest_product.url
+                document.getElementById("flipkart_data").style.display = "block";
+                flipkart_title.innerHTML = JSON.stringify(y.data.flipkart_lowest_product.title); /*Get the item title which is lowest price only on flipkart if any available*/
+                flipkart_price.innerHTML = JSON.stringify(y.data.flipkart_lowest_product.price); /*Get the item price which is lowest price only on flipkart if any available*/
+                flipkart_url.innerHTML = JSON.stringify(y.data.flipkart_lowest_product.url);  /*Get the item url which is lowest price only on flipkart if any available*/
+                var flipkart_link = document.getElementById('flipkart_view_url');
+                flipkart_link.href = y.data.flipkart_lowest_product.url
             }
-
+                      /*pull data from the ebay API*/
                 let ebay_title = document.getElementById("ebay_title");
                 let ebay_price = document.getElementById("ebay_price");
                 let ebay_url = document.getElementById("ebay_url");
@@ -171,9 +172,9 @@
                 if(Object.keys(y.data.ebay_lowest_product).length>0){
 
                     document.getElementById("ebay_data").style.display = "block";
-                    ebay_title.innerHTML = JSON.stringify(y.data.ebay_lowest_product.title);
-                    ebay_price.innerHTML = JSON.stringify(y.data.ebay_lowest_product.price);
-                    ebay_url.innerHTML = JSON.stringify(y.data.ebay_lowest_product.url);
+                    ebay_title.innerHTML = JSON.stringify(y.data.ebay_lowest_product.title); /*Get the item title which is lowest price only on eBay if any available*/
+                    ebay_price.innerHTML = JSON.stringify(y.data.ebay_lowest_product.price); /*Get the item price which is lowest price only on eBay if any available*/
+                    ebay_url.innerHTML = JSON.stringify(y.data.ebay_lowest_product.url);  /*Get the item url which is lowest price only on eBay if any available*/
                     var abay_link = document.getElementById('ebay_View_url');
                     abay_link.href = y.data.ebay_lowest_product.url
                 }
